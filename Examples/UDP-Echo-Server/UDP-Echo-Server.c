@@ -5,9 +5,9 @@
 
 /**
  * \file
- *         A very simple Contiki application showing how Contiki programs look
+ *         A very simple Contiki application using UDP
  * \author
- *         Adam Dunkels <adam@sics.se>
+ *         Thomas Scheffler <scheffler@beuth-hochschule.de>
  */
 
 #include "contiki.h"
