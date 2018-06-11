@@ -1,4 +1,4 @@
-CONTIKI_PROJECT = timer
+CONTIKI_PROJECT = pt_example
 
 ifndef TARGET
    TARGET=minimal-net
