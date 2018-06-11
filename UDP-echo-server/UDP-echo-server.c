@@ -39,7 +39,7 @@ void bsp_udphandler(void)
     uip_ipaddr_copy(&udpconn->ripaddr, &UDP_IP_BUF->srcipaddr);
     udpconn->rport = UDP_IP_BUF->srcport;
     /*Schreibe Antwort Daten in Buffer*/
-    sprintf(buf, (char *)uip_appdata);
+    sprintf(buf, "%.110s\n", (char *)uip_appdata));
     /*Versende das Antwort Packet*/
     uip_udp_packet_send(udpconn, buf, strlen(buf));
     /*Setze Adresse/Port in Verbindungsstruktur auf Null,*/
