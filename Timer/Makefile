@@ -1,6 +1,8 @@
 CONTIKI_PROJECT = timer
 
-ifndef TARGET  TARGET=minimal-netendif
+ifndef TARGET
+   TARGET=minimal-net
+endif
 
 all:$(CONTIKI_PROJECT)
 
