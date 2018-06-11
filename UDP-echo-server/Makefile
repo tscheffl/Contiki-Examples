@@ -1,4 +1,4 @@
-CONTIKI_PROJECT = pt_example
+CONTIKI_PROJECT = UDP-echo-server
 
 ifndef TARGET
    TARGET=minimal-net

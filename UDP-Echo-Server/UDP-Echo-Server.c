@@ -1,8 +1,3 @@
-/*
- *
- *
- */
-
 /**
  * \file
  *         A very simple Contiki application using UDP
@@ -24,7 +19,7 @@
 //#define UDP_IP_BUF ((struct uip_ip_hdr *)&uip_buf[UIP_LLH_LEN])
 
 /*---------------------------------------------------------------------------*/
-PROCESS(hello_world_process, "UDP echo process");
+PROCESS(udp_echo_process, "UDP echo process");
 AUTOSTART_PROCESSES(&udp_echo_process);
 /*---------------------------------------------------------------------------*/
 static struct uip_udp_conn *udpconn;
@@ -60,7 +55,7 @@ PROCESS_THREAD(udp_echo_process, ev, data)
 
   printf("UDP Echo Server\n");
 
-    /*Starte neue UDP Verbindung mit IP 0.0.0.0 und Port 0, */
+  /*Starte neue UDP Verbindung mit IP 0.0.0.0 und Port 0, */
   /* d.h. akzeptiere jede ankommende Verbindung*/
   udpconn = udp_new(NULL, UIP_HTONS(0), NULL);
   /*Setze den Port auf dem gelauscht wird auf 9999*/
