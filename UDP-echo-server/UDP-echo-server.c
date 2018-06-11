@@ -8,7 +8,7 @@
 #include "contiki.h"
 #include "contiki-lib.h"
 #include "contiki-net.h"
-#include "net/uip.h"
+#include "net/ip/uip.h"
 #include "net/netstack.h"
 #include <stdio.h> /* For printf() */
 #include <stdlib.h>
@@ -39,7 +39,7 @@ void bsp_udphandler(void)
     uip_ipaddr_copy(&udpconn->ripaddr, &UDP_IP_BUF->srcipaddr);
     udpconn->rport = UDP_IP_BUF->srcport;
     /*Schreibe Antwort Daten in Buffer*/
-    sprintf(buf, "Hello from the server!\n ");
+    sprintf(buf, (char *)uip_appdata);
     /*Versende das Antwort Packet*/
     uip_udp_packet_send(udpconn, buf, strlen(buf));
     /*Setze Adresse/Port in Verbindungsstruktur auf Null,*/
