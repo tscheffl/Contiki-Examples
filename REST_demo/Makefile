@@ -1,10 +1,10 @@
 all: rest-server-example 
 
 ifndef TARGET
-TARGET=sky
+	TARGET=minimal-net
 endif
 
-CONTIKI=../..
+CONTIKI=../../..
 
 WITH_UIP6=1
 UIP_CONF_IPV6=1
