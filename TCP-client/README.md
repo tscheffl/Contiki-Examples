@@ -3,7 +3,7 @@ TCP-Client
 
 This is a simple TCP-Client making an outgoing connection to `aaaa::1` on port `1234`.
 
-The following settings have been applied to `platform/minimal-net/contiki_conf.h`:
+The following settings have to be applied to `platform/minimal-net/contiki_conf.h`:
 
 ```
 #undef UIP_CONF_IPV6_RPL
