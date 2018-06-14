@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>REST Demo - Random Data Values</title>
+  
+    
+
+<script src="js_libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="js_libs/Highcharts/Highcharts-3.0.7/js/highcharts.js" type="text/javascript"></script>
+  
+
+<script type='text/javascript'>
+
+$(function () {
+    $(document).ready(function() {
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+    
+        var chart;
+        var test = 0;
+        var jsonURL = "http://[fdfd::206:98ff:fe00:232]:8080/rand";
+        var jsonURL = "http://echo.jsontest.com/test/1";
+        
+
+        $('#container').highcharts({
+            chart: {
+                type: 'spline',
+                animation: Highcharts.svg, // don't animate in old IE
+                marginRight: 10,
+                events: {
+                    load: function() {
+    
+                        // set up the updating of the chart each second
+                        var series = this.series[0];
+                        setInterval(function() {
+                            var x = (new Date()).getTime(), // current time
+                                y = test; //Math.random();
+                                jQuery.getJSON(jsonURL,function(data){
+                                     //alert("vorher-innen: " + test);
+                                     test = Number(data.test);
+                                     //alert("nachher-innen: " + test);
+                                });
+                                //alert("aussen:" + y);
+                            series.addPoint([x, y], true, true);
+                        }, 5000);
+                    }
+                }
+            },
+            title: {
+                text: 'Live random data'
+            },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 150
+            },
+            yAxis: {
+                title: {
+                    text: 'Value'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+
+                        Highcharts.numberFormat(this.y, 2);
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            exporting: {
+                enabled: false
+            },
+            series: [{
+                name: 'Random data',
+                data: (function() {
+                    // generate an array of random data
+                    var data = [],
+                        time = (new Date()).getTime(),
+                        i;
+    
+                    for (i = -19; i <= 0; i++) {
+                        data.push({
+                            x: time + i * 5000,
+                            y: 0
+                        });
+                    }
+                    return data;
+                })()
+            }]
+        });
+    });
+    
+});
+
+</script>
+
+
+</head>
+<body>
+
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+  
+</body>
+
+
+</html>
