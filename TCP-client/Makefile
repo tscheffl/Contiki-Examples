@@ -1,5 +1,5 @@
 CONTIKI_PROJECT = tcp-client
 all: $(CONTIKI_PROJECT)
 
-CONTIKI = ../..
+CONTIKI = ../../..
 include $(CONTIKI)/Makefile.include
