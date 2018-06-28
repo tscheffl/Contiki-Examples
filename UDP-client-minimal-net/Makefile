@@ -1,4 +1,9 @@
-CONTIKI_PROJECT = udp-client_minimal_net
+CONTIKI_PROJECT = udp-client
+
+ifndef TARGET
+   TARGET=minimal-net
+endif
+
 all: $(CONTIKI_PROJECT)
 
 CONTIKI = ../../..

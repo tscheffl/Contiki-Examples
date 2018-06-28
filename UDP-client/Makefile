@@ -1,7 +1,7 @@
 CONTIKI_PROJECT = udp_client
 
 ifndef TARGET
-   TARGET=minimal-net
+   TARGET=cc2538dk
 endif
 
 all: $(CONTIKI_PROJECT)
