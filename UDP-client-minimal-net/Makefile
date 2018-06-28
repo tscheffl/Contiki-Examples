@@ -1,4 +1,4 @@
-CONTIKI_PROJECT = udp-client
+CONTIKI_PROJECT = udp_client
 
 ifndef TARGET
    TARGET=minimal-net
