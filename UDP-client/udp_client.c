@@ -130,13 +130,14 @@ PROCESS_THREAD(udp_client_process, ev, data)
            UIP_HTONS(client_conn->lport), UIP_HTONS(client_conn->rport));
     
     etimer_set(&et, SEND_INTERVAL);
-    while(1) {
+    while(1)
+    {
         PROCESS_YIELD();
-        if(etimer_expired(&et)) {
+        if(etimer_expired(&et))
+        {
             timeout_handler();
             etimer_restart(&et);
         }
-      }
     }
     
     PROCESS_END();

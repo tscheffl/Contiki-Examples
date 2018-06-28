@@ -70,7 +70,7 @@ timeout_handler(void)
     
     printf("Client sending to: ");
     PRINT6ADDR(&client_conn->ripaddr);
-    sprintf(buf, "Hello %d from the client", ++seq_id);
+    sprintf(buf, "Hello %d from the client\n", ++seq_id);
     printf(" (msg: %s)\n", buf);
 #if SEND_TOO_LARGE_PACKET_TO_TEST_FRAGMENTATION
     uip_udp_packet_send(client_conn, buf, UIP_APPDATA_SIZE);
@@ -127,7 +127,7 @@ PROCESS_THREAD(udp_client_process, ev, data)
     /* new connection with remote host */
     client_conn = udp_new(&ipaddr, UIP_HTONS(UDP_PORT), NULL);
     
-    PRINTF("Created a connection with the server ");
+    PRINTF("Send data to the server: ");
     PRINT6ADDR(&client_conn->ripaddr);
     PRINTF("local/remote port %u/%u\n",
            UIP_HTONS(client_conn->lport), UIP_HTONS(client_conn->rport));
