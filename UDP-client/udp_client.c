@@ -91,9 +91,14 @@ static void
 set_connection_address(uip_ipaddr_t *ipaddr)
 {
     // change this IP address depending on the node that runs the server!
+    
     // uip_ip6addr(ipaddr,0xfe80,0,0,0,0x8400,0x0012,0x91c7,0x1b01);
+    
     // Node-Red Laptop
-    uip_ip6addr(ipaddr,0x2001,0x638,0x812,0xb88a,0x82e6,0x50ff,0xfe24,0x5ab0);
+    // uip_ip6addr(ipaddr,0x2001,0x638,0x812,0xb88a,0x82e6,0x50ff,0xfe24,0x5ab0);
+    
+    // Example server: https://wiki.ipv6lab.beuth-hochschule.de/contiki/cc2538-workshop#udp-client_mittels_6lowpan
+    uip_ip6addr(ipaddr,0xfd00,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0001);
 }
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(udp_client_process, ev, data)
