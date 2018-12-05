@@ -1,0 +1,10 @@
+CONTIKI_PROJECT = simpleUDP
+all: $(CONTIKI_PROJECT)
+ 
+UIP_CONF_IPV6=1
+UIP_CONF_RPL=0
+ 
+CFLAGS += -DUIP_CONF_IPV6=1
+ 
+CONTIKI = ../../..
+include $(CONTIKI)/Makefile.include

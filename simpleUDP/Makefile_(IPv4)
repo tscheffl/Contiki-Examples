@@ -1,0 +1,7 @@
+CONTIKI_PROJECT = simpleUDP
+all: $(CONTIKI_PROJECT)
+ 
+WITH_UIP=1
+ 
+CONTIKI = ../..
+include $(CONTIKI)/Makefile.include
